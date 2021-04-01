@@ -74,8 +74,9 @@ exports.executeCypherQuery = async (statement, params = {}) => {
 //       console.error(error);
 //     });
 // });
-
-app.listen(3000);
-console.log("Server Started on Port 3000");
+const port = process.env.PORT || 8000;
+app.listen(port, () => {
+  console.log(`Server Started on Port ${port}`);
+});
 
 // module.exports = { executeCypherQuery };
