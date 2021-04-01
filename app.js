@@ -55,23 +55,25 @@ exports.executeCypherQuery = async (statement, params = {}) => {
   }
 };
 
-const query = `MATCH (n:Person) RETURN n.name LIMIT 25`;
+// const query = `MATCH (n:Person) RETURN n.name LIMIT 25`;
 
-app.get("/", function (req, res) {
-  session
-    .run(query, (params = {}))
-    .then((result) => {
-      result.records.forEach((record) => {
-        res.send(record._fields[0]);
-        console.log(record._fields[0]);
-      });
-      session.close();
-      driver.close();
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
+// app.get("/", function (req, res) {
+//   const session = driver.session({ database: "neo4j" });
+
+//   session
+//     .run(query, (params = {}))
+//     .then((result) => {
+//       result.records.forEach((record) => {
+//         res.send(record._fields[0]);
+//         console.log(record._fields[0]);
+//       });
+//       session.close();
+//       driver.close();
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// });
 
 app.listen(3000);
 console.log("Server Started on Port 3000");
