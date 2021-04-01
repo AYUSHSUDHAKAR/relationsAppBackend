@@ -12,8 +12,8 @@ const relationRoutes = require("./routes/relation");
 
 //DB connection
 const driver = neo4j.driver(
-  "bolt://107.23.71.192:7687",
-  neo4j.auth.basic("neo4j", "intents-memorandum-property"),
+  "bolt://52.87.206.240:7687",
+  neo4j.auth.basic("neo4j", "punch-defection-background"),
   {
     /* encrypted: 'ENCRYPTION_OFF' */
   }
