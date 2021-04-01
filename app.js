@@ -19,8 +19,6 @@ const driver = neo4j.driver(
   }
 );
 
-
-
 //View Engine
 app.set("Views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -52,7 +50,8 @@ exports.executeCypherQuery = async (statement, params = {}) => {
     session.close();
     return result;
   } catch (error) {
-    throw error; // we are logging this error at the time of calling this method
+    session.close();
+    return error;
   }
 };
 
