@@ -43,10 +43,10 @@ exports.deletePerson = async (req, res) => {
   const person = req.body;
   console.log(person);
 
-  const query = `MATCH (m:Person {name: $name})
-DELETE m`;
+  const query = `MATCH (n {name: $name})
+DETACH DELETE n`;
   const params = {
-    nam: person.name,
+    name: person.name,
   };
   const resultObj = await graphDB.executeCypherQuery(query, params);
   res.json(resultObj);
